@@ -14,6 +14,8 @@ class Text:
             for l in self.text
         ))
 
+
+    # TODO: Make not shit
     def __mul__(self, other: list[int]):
         new = ""
         text_index = 0
