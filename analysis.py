@@ -1,3 +1,5 @@
+from text import Text
+from typing_extensions import Self
 
 class FrequencyCtx:
 
@@ -13,9 +15,15 @@ class FrequencyCtx:
         total = sum(self.frequencies)
         if total == 0: return [0] * len(self.frequencies)
 
-
     def run(self, arg, transformer):
 
         return transformer(self, arg)
 
+    @staticmethod
+    def count(ctx: Self, text: Text):
+        n_freqs = ctx.frequencies.copy()
+        
+        for i in text.glyphs:
+            n_freqs[i] += 1
 
+        return FrequencyCtx(n_freqs, m=len(n_freqs))
