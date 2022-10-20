@@ -1,11 +1,13 @@
-from affine import Affine
+from affine import Affine, solve_affine, solve_ceasar
+from analysis import STANDARD_FREQUENCIES, FrequencyCtx
 from crypt_context import CryptCtx
 from french_cipher import FrenchCipher
 from samples import SIMPLE_CEASAR
 from text import Text
+from wordlists import Wordlist, score_by_wordlist
 
 
-if __name__ == '__main__':
+def main():
 
     # text = Text("Hello, World!")
     text = SIMPLE_CEASAR
@@ -21,3 +23,11 @@ if __name__ == '__main__':
 
     ctx = ctx.run_full(vin, FrenchCipher.decrypt)
     print(text * ctx.decrypted)
+
+
+if __name__ == '__main__':
+
+    wl = Wordlist()
+    words = [*wl.get_lines(limit=100000)]
+    dec = solve_affine(SIMPLE_CEASAR, lambda x: score_by_wordlist(x, words))
+    print(dec)

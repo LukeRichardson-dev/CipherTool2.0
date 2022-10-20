@@ -14,7 +14,6 @@ class Text:
             for l in self.text
         ))
 
-
     # TODO: Make not shit
     def __mul__(self, other: list[int]):
         new = ""
@@ -46,7 +45,7 @@ class Text:
 
         words = self.text.split(" ")
 
-        for idx, word in words:
+        for idx, word in enumerate(words):
 
             words[idx] = "".join(filter(lambda x: x.isalpha(), word))
 
