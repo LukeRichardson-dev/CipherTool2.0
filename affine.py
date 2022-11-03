@@ -58,9 +58,8 @@ def solve_ceasar(text, scorer):
         
         dec = text * nctx.decrypted
         
-        if scorer(Text(dec)) > 0.8:
-
-            return i, dec
+        score = scorer(Text(dec))
+        yield i, dec, score
 
 def solve_affine(text, scorer):
 
