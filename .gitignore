@@ -6,3 +6,8 @@ venv
 poetry.lock
 pyproject.toml
 replit.nix
+
+
+# Added by cargo
+
+/target
