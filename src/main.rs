@@ -3,6 +3,8 @@ use dioxus::prelude::*;
 mod vigenere;
 use vigenere::Vinegere;
 
+use crate::monoalphabetic::MonoAlphabetic;
+
 mod monoalphabetic;
 
 fn main() {
@@ -12,7 +14,7 @@ fn main() {
 fn app(cx: Scope) -> Element {
     cx.render(rsx!(
         Vinegere {
-            text: "HelloWorldMyNameIsLuke".to_string()
+            text: "ANUTRCRACKERLIKESNUTS".to_string()
         }
     ))
 }
