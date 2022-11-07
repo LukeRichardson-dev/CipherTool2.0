@@ -13,7 +13,7 @@ fn main() {
 
 fn app(cx: Scope) -> Element {
     cx.render(rsx!(
-        Vinegere {
+        MonoAlphabetic {
             text: "ANUTRCRACKERLIKESNUTS".to_string()
         }
     ))
