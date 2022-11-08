@@ -3,7 +3,7 @@ mod preview;
 
 use dioxus::prelude::*;
 
-use crate::monoalphabetic::key::KeyEditor;
+use crate::monoalphabetic::{key::KeyEditor, preview::Preview};
 
 use self::key::MonoalphabeticKey;
 
@@ -15,6 +15,9 @@ pub fn MonoAlphabetic(cx: Scope, text: String) -> Element {
         KeyEditor {
             monokey: monokeyref.clone()
         }
-        "{text}"
+        Preview {
+            plaintext: text.clone(),
+            monokey: monokeyref.clone(),
+        }
     ))
 }

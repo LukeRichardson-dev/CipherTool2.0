@@ -14,7 +14,7 @@ fn main() {
 fn app(cx: Scope) -> Element {
     cx.render(rsx!(
         MonoAlphabetic {
-            text: "ANUTRCRACKERLIKESNUTS".to_string()
+            text: "BOVUSDSBDLFSMJLFTOVUT".to_string()
         }
     ))
 }
