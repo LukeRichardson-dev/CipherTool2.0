@@ -6,6 +6,7 @@ use vigenere::Vinegere;
 use crate::monoalphabetic::MonoAlphabetic;
 
 mod monoalphabetic;
+pub mod constants;
 
 fn main() {
     dioxus::desktop::launch(app);
