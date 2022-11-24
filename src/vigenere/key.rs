@@ -11,7 +11,7 @@ pub fn KeyEditor(cx: Scope, vinkey: UseRef<VinegereKey>) -> Element {
 
     cx.render(rsx!(
         vinkey.read().key.iter().enumerate().map(|(idx, v)| {
-            let l = String::from_utf8(vec![*v + 65]).unwrap();
+            let l = String::from_utf8(vec![(26 - *v) % 26 + 65]).unwrap();
             rsx!(
                 div { 
                     button {

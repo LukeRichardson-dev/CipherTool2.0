@@ -12,7 +12,7 @@ pub struct VingereState {
 }
 
 pub fn Vinegere(cx: Scope<VingereState>) -> Element {
-    let key = use_ref(&cx, || VinegereKey { key: vec![3, 4, 7, 2, 8] });
+    let key = use_ref(&cx, || VinegereKey { key: vec![0, 0, 0, 0, 0, 0, 0] });
 
     key.read();
     cx.render(rsx! {
