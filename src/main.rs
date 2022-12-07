@@ -3,7 +3,7 @@ use dioxus::prelude::*;
 mod vigenere;
 use vigenere::Vinegere;
 
-use crate::{monoalphabetic::MonoAlphabetic, constants::{CHALLENGES_6_B, CHALLENGES_7_A, CHALLENGES_7_B}};
+use crate::{monoalphabetic::MonoAlphabetic, constants::*};
 
 mod monoalphabetic;
 pub mod constants;
@@ -15,7 +15,7 @@ fn main() {
 fn app(cx: Scope) -> Element {
     cx.render(rsx!(
         Vinegere {
-            text: CHALLENGES_7_B.replace(" ", "").to_string()
+            text: CHALLENGES_8_A.replace(" ", "").to_string()
         }
     ))
 }
