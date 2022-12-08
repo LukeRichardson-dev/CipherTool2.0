@@ -15,7 +15,7 @@ fn main() {
 fn app(cx: Scope) -> Element {
     cx.render(rsx!(
         Vinegere {
-            text: CHALLENGES_8_A.replace(" ", "").to_string()
+            text: CHALLENGES_9_A.replace(" ", "").to_string()
         }
     ))
 }
