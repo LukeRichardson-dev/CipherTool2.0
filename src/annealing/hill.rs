@@ -4,7 +4,7 @@ use rand::random;
 
 static TEMP: f64 = 10.0;
 static STEP: f64 = 0.2;
-static MAX_COUNT: usize = 5_000;
+static MAX_COUNT: usize = 10_000;
 
 fn score_by_qgram(text: String) -> f64 {
     let mut s = 0f64;

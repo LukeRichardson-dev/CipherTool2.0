@@ -17,17 +17,23 @@ impl Key {
 
     pub fn child(&self) -> Self {
         let roll = random::<u32>() % 50;
-
-        match roll {
-            0 => Key::swap_cols(&self),
-            1 => Key::swap_rows(&self),
-            2 => {
-                let mut n = self.0.clone();
-                n.reverse();
-                Self(n)
-            }
-            _ => Key::swap(&self)
+        let mut new = self.clone();
+        for _ in 0..(random::<u32>() % 3) {
+            new = match roll {
+                0 => Key::swap_cols(&self),
+                1 => Key::swap_rows(&self),
+                2 => {
+                    let mut n = self.0.clone();
+                    n.reverse();
+                    Self(n)
+                },
+                3 => Key::flip_h(&self),
+                4 => Key::flip_v(&self),
+                _ => Key::swap(&self)
+            };
         }
+
+        new
     }
 
     fn swap(&self) -> Self {
@@ -68,5 +74,25 @@ impl Key {
         }
 
         Self(nkey)
+    }
+
+    fn flip_h(&self) -> Self {
+        let mut new = self.0.clone();
+        for k in 0..5 {
+            for j in 0..5 {
+                new[k*5+j] = self.0[(4-k)*5+j];
+            }
+        }
+        Self(new)
+    }
+
+    fn flip_v(&self) -> Self {
+        let mut new = self.0.clone();
+        for k in 0..5 {
+            for j in 0..5 {
+                new[j*5+k] = self.0[(4-j)*5+k];
+            }
+        }
+        Self(new)
     }
 }
