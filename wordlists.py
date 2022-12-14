@@ -32,17 +32,18 @@ class Wordlist:
             return not any(map(lambda fn: fn(line), self._filters))
 
         with open(self.path) as wlst:
+            words = wlst.read().split('\n')
 
-            for line_no, line in enumerate(filter(compound_filter, wlst)):
-                
-                if step(line_no): break
+        for line_no, line in enumerate(filter(compound_filter, words)):
+            
+            if step(line_no): break
 
-                line = line.rstrip()
+            line = line.rstrip()
 
-                for op in self._operations:
-                    line = op(line)
+            for op in self._operations:
+                line = op(line)
 
-                yield line
+            yield line
 
     def add_operations(self, *operations):
 

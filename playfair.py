@@ -33,11 +33,15 @@ def prepare(plaintext):
     return plaintext
 
 def keyword_to_key(keyword):
-
+    keyword = keyword.upper()
     alpha = set(DEFAULT).difference({'J'})
-    key = [i for i in keyword]
-    alpha.difference_update(key)
-    return key + sorted(list(alpha))
+    nkw = []
+    for i in keyword:
+        if i in alpha:
+            nkw.append(i)
+            alpha.difference_update([i])
+
+    return nkw + sorted(alpha)
 
 def backward(ciphertext, key):
 
