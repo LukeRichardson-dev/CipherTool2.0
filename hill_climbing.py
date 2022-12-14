@@ -9,8 +9,6 @@ def try_keys(try_key, score, initkey, max_iterations=1_000_000):
     key = initkey.copy()
     d = score(try_key(key))
     for i in range(max_iterations):
-
-
         nkey: list = key.copy()
 
         for _ in range(randrange(1, (i // 500) + 2)):
